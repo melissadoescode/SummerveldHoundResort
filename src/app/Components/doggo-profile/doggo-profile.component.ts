@@ -11,10 +11,10 @@ import { LifeEventViewModel } from 'src/app/Models/ViewModels/LifeEventViewModel
   styleUrls: ['./doggo-profile.component.css']
 })
 export class DoggoProfileComponent implements OnInit {
-  doggo: Doggo;
-  lifeEvent: LifeEventViewModel;
+  doggo: Doggo[];
+  lifeEvent: LifeEventViewModel[];
   
-  constructor(private doggoService: DoggoProfileService, private lifeEventService : LifeEventService,  private route: ActivatedRoute) { }
+  constructor(private doggoService: DoggoProfileService, private lifeEventService: LifeEventService,  private route: ActivatedRoute) { }
 
   ngOnInit(): void {
     this.getDoggoById();
@@ -23,15 +23,16 @@ export class DoggoProfileComponent implements OnInit {
 
   getDoggoById(){
     const doggoId = this.route.snapshot.paramMap.get('doggoId');
-    this.doggoService.getDoggoById(doggoId).subscribe(info => {
-      this.doggo = info;
-    })
+    this.doggoService.getDoggoById(doggoId).subscribe((data:any)=>{
+      this.doggo = Array.of(data);
+    });
   }
 
   getLifeEvent(){
     const doggoId = this.route.snapshot.paramMap.get('doggoId');
     this.lifeEventService.getLifeEventByDoggoId(+doggoId).subscribe((data:any)=>{
-      this.lifeEvent = data;
+      this.lifeEvent = Array.of(data);
+      console.log(this.lifeEvent);
     });
   }
 }

@@ -13,14 +13,12 @@ export class DoggoProfileService {
 
   doggo: Doggo[];
   rootUrl = environment.summerveldHoundResortApiUrl;
-  paramDoggo = 'doggo'
-  paramDoggoById = '/getDoggoById'
-  doggoId = '?doggoId='
+  paramDoggo = 'doggo/'
 
   constructor(private http: HttpClient, private errorHandler: ErrorHandlerService) { }
 
   getDoggoById(doggoId):Observable<Doggo>{
-    return this.http.get<Doggo>(`${this.rootUrl}${this.paramDoggo}${this.paramDoggoById}${this.doggoId}${doggoId}`)
+    return this.http.get<Doggo>(`${this.rootUrl}${this.paramDoggo}${doggoId}`)
     .pipe(
       map((data:any)=>{
         return data;

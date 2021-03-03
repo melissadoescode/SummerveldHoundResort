@@ -10,10 +10,7 @@ import { map, catchError } from 'rxjs/operators';
 export class DoggoService {
 
   rootUrl = environment.summerveldHoundResortApiUrl;
-  paramDoggo = 'doggo'
-  paramDoggoById = '/getDoggoById'
-  doggoId = '?doggoId='
-  doggoUpdateDeleteId = '?id='
+  paramDoggo = 'doggo/'
 
   private httpOptions = { headers: new HttpHeaders({ 'Content-Type': 'application/json' })};
   

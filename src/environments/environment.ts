@@ -4,7 +4,7 @@
 
 export const environment = {
   production: false,
-  summerveldHoundResortApiUrl:'http://localhost:50367/api/'
+  summerveldHoundResortApiUrl:'https://localhost:44357/api/'
 };
 
 /*
