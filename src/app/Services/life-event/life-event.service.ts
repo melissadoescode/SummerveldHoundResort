@@ -13,11 +13,13 @@ export class LifeEventService {
 
   rootUrl = environment.summerveldHoundResortApiUrl;
   paramLifeEvent = 'LifeEvent/'
-
+  paramGetDogggoById = 'getDoggoById?'
+  paramDoggoId = 'doggoId='
+  
   constructor(private http: HttpClient, private errorHandler: ErrorHandlerService) { }
 
   getLifeEventByDoggoId(doggoId: number):Observable<LifeEventViewModel[]>{
-    return this.http.get<LifeEventViewModel[]>(`${this.rootUrl}${this.paramLifeEvent}${doggoId}`)
+    return this.http.get<LifeEventViewModel[]>(`${this.rootUrl}${this.paramLifeEvent}${this.paramGetDogggoById}${this.paramDoggoId}${doggoId}`)
     .pipe(catchError(this.errorHandler.handleError));
   }
 }

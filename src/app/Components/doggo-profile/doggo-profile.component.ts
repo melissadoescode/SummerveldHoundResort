@@ -4,6 +4,8 @@ import { DoggoProfileService } from 'src/app/Services/doggo-profile/doggo-profil
 import { ActivatedRoute } from '@angular/router';
 import { LifeEventService } from 'src/app/Services/life-event/life-event.service';
 import { LifeEventViewModel } from 'src/app/Models/ViewModels/LifeEventViewModel';
+import { ContentViewModel } from 'src/app/Models/ViewModels/ContentViewModel';
+import { Content } from '@angular/compiler/src/render3/r3_ast';
 
 @Component({
   selector: 'app-doggo-profile',
@@ -13,12 +15,19 @@ import { LifeEventViewModel } from 'src/app/Models/ViewModels/LifeEventViewModel
 export class DoggoProfileComponent implements OnInit {
   doggo: Doggo[];
   lifeEvent: LifeEventViewModel[];
+  content: ContentViewModel[] = [];
+  count: any;
+  layout: number;
+  currentDateTime: any;
   
   constructor(private doggoService: DoggoProfileService, private lifeEventService: LifeEventService,  private route: ActivatedRoute) { }
 
   ngOnInit(): void {
     this.getDoggoById();
     this.getLifeEvent();
+    this.getContentByAlbumId();
+    this.contentGrid();
+    console.log("test " + this.currentDateTime);
   }
 
   getDoggoById(){
@@ -32,7 +41,21 @@ export class DoggoProfileComponent implements OnInit {
     const doggoId = this.route.snapshot.paramMap.get('doggoId');
     this.lifeEventService.getLifeEventByDoggoId(+doggoId).subscribe((data:any)=>{
       this.lifeEvent = Array.of(data);
-      console.log(this.lifeEvent);
     });
+  }
+
+  getContentByAlbumId(){
+    const albumId = this.route.snapshot.paramMap.get('albumId');
+    this.doggoService.getContentByAlbumId(+albumId).subscribe((data:any)=>{
+      this.content = data;
+      console.log(this.content);
+      this.count = this.content.length;
+      console.log("count " + this.count);
+      this.layout = this.count;
+    });
+  }
+
+  contentGrid(){
+   this.currentDateTime = this.content.map(x=> x.albumDateCreated);
   }
 }

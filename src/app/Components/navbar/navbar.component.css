@@ -2,9 +2,8 @@
     background-color: white !important;
 }
 .logo{
-    width: 150px;
-    height: 180px;
-    padding: 10px;
+    width: 100px;
+    height: 100px;
 }
 .nav-link{
     font-family: 'Montserrat', sans-serif;
@@ -46,7 +45,12 @@ display: block;
   width: 100%; 
   left: 0; 
 }
+.sign-in {
+  border-radius: 30px;
+  border: 1px #583258 solid;
+  padding: 12px;
+  margin-top: 40px;
+}
  
-/*#630063*/
 
 
