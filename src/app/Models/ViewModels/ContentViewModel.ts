@@ -6,5 +6,6 @@ export interface ContentViewModel{
     contentDateCreated: Date, 
     doggoId: number, 
     albumName: string, 
-    albumDateCreated: Date
+    albumDateCreated: Date, 
+    isFirstItem: boolean
 }

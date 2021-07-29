@@ -10,6 +10,7 @@ import { AboutComponent } from './Components/about/about.component';
 import { DoggoComponent } from './Components/doggo/doggo.component';
 import { DoggoProfileComponent } from './Components/doggo-profile/doggo-profile.component';
 import { BlogComponent } from './Components/blog/blog.component';
+import { VolunteerComponent } from './Components/volunteer/volunteer.component';
 
 @NgModule({
   declarations: [
@@ -19,6 +20,7 @@ import { BlogComponent } from './Components/blog/blog.component';
     DoggoComponent,
     DoggoProfileComponent,
     BlogComponent,
+    VolunteerComponent,
   ],
   imports: [
     BrowserModule,

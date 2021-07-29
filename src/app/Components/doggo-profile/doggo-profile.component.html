@@ -119,19 +119,26 @@
                                     <div class="album-title"><strong>{{d.doggoName}}</strong> added new <span>photos</span></div>
                                  </div>
                               </div><!--status main-->
-                              <div *ngFor="let c of content"[value]="c.contentId">
-                                 <div class="album-date">6 hours ago {{c.albumDateCreated}}</div>
+                              <div *ngFor="let c of content">
+                                 <div class="album-date" *ngIf="c.isFirstItem">6 hours ago {{c.albumDateCreated}}</div>
 
                                     <div class="album-content">
-                                       <div class="album-description">{{c.albumName}}</div>
-                                       <div class="album-photos">
-                                          <img src="{{c.contentUpload}}" alt="" class="album-photo" /> 
-                                          <div class="album-right">
-                                             <img src="https://images.unsplash.com/photo-1502872364588-894d7d6ddfab?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=2250&q=80" alt="" class="album-photo" />
-                                          </div>
-                                       </div><!--album-photos-->
-                                    </div><!--album-content-->
+                                       <div class="album-description" *ngIf="c.isFirstItem">{{c.albumName}}</div>
                               </div><!--ngFor Content-->
+                                 <div class="album-photos">
+                                    
+<div class="card-columns">
+   <div class="card">
+      <img class="card-img-top" [src]="c.contentUpload"/>
+   </div>
+</div>
+                                    <!-- <img src="{{c.contentUpload}}" alt="" class="album-photo" />  -->
+                                    <!-- <div class="album-right">
+                                       <img src="https://images.unsplash.com/photo-1502872364588-894d7d6ddfab?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=2250&q=80" alt="" class="album-photo" />
+                                    </div> -->
+                                 </div><!--album-photos-->
+
+                                    </div><!--album-content-->
                            </div><!--ngFor Doggo-->
                         </div><!--album box-->
                      </div><!--ngIf count >= 4-->

@@ -19,6 +19,7 @@ export class DoggoProfileComponent implements OnInit {
   count: any;
   layout: number;
   currentDateTime: any;
+  statusCount = 0;
   
   constructor(private doggoService: DoggoProfileService, private lifeEventService: LifeEventService,  private route: ActivatedRoute) { }
 
@@ -52,10 +53,14 @@ export class DoggoProfileComponent implements OnInit {
       this.count = this.content.length;
       console.log("count " + this.count);
       this.layout = this.count;
+      if(this.count > 0){
+        this.content[0].isFirstItem = true;
+      }
     });
   }
 
   contentGrid(){
    this.currentDateTime = this.content.map(x=> x.albumDateCreated);
   }
+
 }
