@@ -1,17 +1,18 @@
-<div class="container">
-    <div class="row">
-        <div class="col-md-12">
-            <div class="furbabies">
-                <h1 class="heading">Meet the Furbabies</h1>
-            </div>
-        </div>
-        
-    </div>
+<div class="heading">
+  <div class="container">
+      <div class="row">
+          <div class="col-md-12">
+              <div class="furbabies">
+                  <h1 class="heading tracking-in-expand-fwd-top">Meet the Furbabies</h1>
+              </div>
+          </div>   
+      </div>
+  </div>
 </div>
 <div class="container" >
     <div class="row">
       <div *ngFor="let doggo of doggos">
-        <div class="profile profile-smallimg">
+        <div class="profile profile-smallimg bounce-in-top">
             <div class="profile__image"><img src="{{doggo.doggoProfilePic}}" alt="Doggo"/></div>
             <div class="profile__info">
               <h3>{{doggo.doggoName}}</h3>
@@ -21,6 +22,88 @@
       </div>
     </div>
 </div>
+<!-- footer -->
+<div class="footer">
+  <div class="footer-container">
+      <div class="row">
+          <div class="col-md-4">
+            <div class="first">
+            <div class="card .mx-auto d-flex justify-content-center">
+                <h4>About</h4>
+                <p>We are a forever home to <br> 
+                  our rescues because we believe <br>
+                  that they are part of our family.<br> 
+                  We provide our rescues with a safe <br>
+                  haven & a better quality of life in <br>
+                  a family environment.</p> 
+
+            </div>
+            </div>
+            <div class="row">
+              <div class="col-md-12">
+                <div class="social_profile">
+                  <ul>
+                  <li><p>follow us on: </p></li>
+                    <li><a href="#"><i class="fa fa-facebook-f"></i></a></li>
+                    <li><a href="#"><i class="fa fa-instagram"></i></a></li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-md-4">
+              <div class="second">
+                <div class="card .mx-auto d-flex justify-content-center">
+                  <h4> Navigate</h4>
+                  <ul>
+                      <li><a class="nav-link" href="#" routerLink="/summerveldhoundresort/about">About Us</a> <i class="fa fa-paw"></i>
+                      </li>
+                      <li><a class="nav-link" href="#" routerLink="/summerveldhoundresort/doggo">Our Dogs</a> <i class="fa fa-paw"></i>
+                      </li>
+                      <li><a class="nav-link" href="#" routerLink="/summerveldhoundresort/volunteer">What you could do</a> <i class="fa fa-paw"></i>
+                      </li>
+                  </ul>
+                </div>
+              </div>
+          </div>
+
+          <div class="col-md-4">
+              <div class="third">
+                <div class="card .mx-auto d-flex justify-content-center">
+                  <h4> Contact</h4>
+                  <!-- Phone: <span itemprop="telephone"><a href="tel:+123456890">Vyaksha Singh</a> -->
+
+                   <p>Vyaksha Singh</p>
+                  <a style= "font-weight: 100;"href="tel:+2746827149"> <i class="fa fa-phone"></i>  +27646827149</a>
+                    <br>
+                    <a href = "mailto: singhvyaksha@gmail.com"><i class="fa fa-envelope"></i>  singhvyaksha<br>@gmail.com</a>
+                    <br>
+                    <p><i class="fa fa-map-marker"></i>  7A Bowles Rd<br> Assagay<br>  3650</p>
+                  </div>
+              </div>
+          </div>
+      </div>
+  </div>
+  <!-- <div class="container">
+      <div class="row">
+          <div class="col-12">
+              <div class="line"></div>
+              <div class="second2">
+                  <a href="https://codepen.io/AndreeaBunget" target="_blank"> <i class="fab fa-codepen fa-2x margin"></i></a>
+                  <a href="https://github.com/WebDeveloperCodeRep" target="_blank"> <i class="fab fa-github fa-2x margin"></i></a>
+                  <a href="https://www.linkedin.com/in/andreea-mihaela-bunget-a4248812b/" target="_blank"> <i class="fab fa-linkedin fa-2x margin"></i></a>
+                  <a href="https://www.youtube.com/channel/UCX674BUbomzBCakbb75lhfA?view_as=subscriber" target="_blank"><i class="fab fa-youtube fa-2x margin" ></i></a>
+
+              </div>
+
+          </div>
+      </div>
+      </div> -->
+</div>
+
+
+
 <!-- <section>
     <div class="profile profile-smallimg">
       <div class="profile__image"><img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/567707/dog.png" alt="Doggo"/></div>
@@ -43,3 +126,4 @@
       <div class="profile__cta"><a class="button">Adopt Doggo!</a></div>
     </div>
   </section> -->
+

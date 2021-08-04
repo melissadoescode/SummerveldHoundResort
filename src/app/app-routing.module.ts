@@ -4,6 +4,7 @@ import { AboutComponent } from './Components/about/about.component';
 import { BlogComponent } from './Components/blog/blog.component';
 import { DoggoProfileComponent } from './Components/doggo-profile/doggo-profile.component';
 import { DoggoComponent } from './Components/doggo/doggo.component';
+import { VolunteerFormComponent } from './Components/volunteer-form/volunteer-form.component';
 import { VolunteerComponent } from './Components/volunteer/volunteer.component';
 
 
@@ -14,6 +15,7 @@ const routes: Routes = [
   {path:'summerveldhoundresort/doggo-profile/:doggoId', component:DoggoProfileComponent},
   {path:'summerveldhoundresort/blog', component:BlogComponent},
   {path:'summerveldhoundresort/volunteer', component:VolunteerComponent},
+  {path:'summerveldhoundresort/volunteer-form', component:VolunteerFormComponent},
 ];
 
 @NgModule({

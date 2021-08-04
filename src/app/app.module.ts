@@ -11,6 +11,7 @@ import { DoggoComponent } from './Components/doggo/doggo.component';
 import { DoggoProfileComponent } from './Components/doggo-profile/doggo-profile.component';
 import { BlogComponent } from './Components/blog/blog.component';
 import { VolunteerComponent } from './Components/volunteer/volunteer.component';
+import { VolunteerFormComponent } from './Components/volunteer-form/volunteer-form.component';
 
 @NgModule({
   declarations: [
@@ -21,6 +22,7 @@ import { VolunteerComponent } from './Components/volunteer/volunteer.component';
     DoggoProfileComponent,
     BlogComponent,
     VolunteerComponent,
+    VolunteerFormComponent,
   ],
   imports: [
     BrowserModule,
