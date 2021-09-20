@@ -1,0 +1,123 @@
+<div class="timeline">
+    <div class="timeline-left">
+       <div *ngFor="let d of doggo" class="intro-box">
+          <div class="intro-title">
+             Intro
+             <button class="intro-menu"></button>
+          </div>
+          <div class="info">
+             <div class="info-item">
+                <i class="fa fa-briefcase"></i> Doggo at <span>Summerveld Hound Resort</span>
+             </div>
+             <div class="info-item">
+                <i class="fa fa-home"></i> Lives in <span>Assagay, KwaZulu-Natal</span>
+             </div>
+             <div class="info-item">
+                <i class="fa fa-paw"></i> Nickname <span>{{d.doggoNickname}}</span>
+             </div>
+          </div>
+       </div>
+       <div class="event box">
+          <div class="event-wrapper">
+             <div class="event-title">Life Events</div>
+             <div class="event-body" >
+                <div class="row">
+                   <div class="col-sm-12">
+                      <div *ngFor="let l of lifeEvent">
+                         <div class="card">
+                            <div class="card-body">
+                               <div class="last-vet-check-icon">
+                                  <div class="icon-flex">
+                                     <div class="icon-wrapper">
+                                        <i class="{{l.iconSrcUrl}}"></i>
+                                     </div>
+                                  </div>
+                               </div>
+                               <div class="last-vet-check-title">{{l.lifeEventName}}</div>
+                               <div class="last-vet-check-date">{{l.lifeEventDate}}</div>
+                            </div>
+                         </div>
+                      </div>
+                   </div>
+                </div>
+             </div>
+          </div>
+       </div>
+    </div>
+    <div class="container">
+       <!-- <div class="col-md-12">
+          <div class="timeline-right">
+             <div class="album box">
+                <div class="status-main">
+                   <img src="https://i.ibb.co/yq1GxBM/DSC04033.jpg" class="status-img" />
+                   <div class="album-detail">
+                      <div class="album-title"><strong>Shenzi</strong> added new <span>photos</span></div>
+                      <div class="album-date">6 hours ago</div>
+                   </div>
+                   <div class="album-content">
+                      <div class="album-description">
+                        Bath time...
+                      </div>
+                      <div class="album-photos">
+                         <img src="https://images.unsplash.com/photo-1508179719682-dbc62681c355?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=2378&q=80" alt="" class="album-photo" /> 
+                         <div class="album-right">
+                            <img src="https://images.unsplash.com/photo-1502872364588-894d7d6ddfab?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=2250&q=80" alt="" class="album-photo" />
+                            <img src="https://images.unsplash.com/photo-1566737236500-c8ac43014a67?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1950&q=80" alt="" class="album-photo" />
+                        </div>
+                      </div>
+                   </div>
+                </div>
+             </div>
+          </div>
+          </div>
+          </div> -->
+       <div class="row">
+          <div class="col-md-12">
+             <div class="timeline-right">
+                <div *ngIf="count >= 4">
+                   <div class="album box">
+                      <div *ngFor="let d of doggo">
+                         <div class="status-main">
+                            <img src="{{d.doggoProfilePic}}" class="status-img" />
+                            <div class="album-detail">
+                               <div class="album-title"><strong>{{d.doggoName}}</strong> added new <span>photos</span></div>
+                            </div>
+                         </div>
+                         <!--status main-->
+                         <div *ngFor="let c of content">
+                            <div class="album-date" *ngIf="c.isFirstItem">6 hours ago {{c.albumDateCreated}}</div>
+                            <div class="album-content">
+                               <div class="album-description" *ngIf="c.isFirstItem">{{c.albumName}}</div>
+                            </div>
+                            <!--ngFor Content-->
+                            <div class="album-photos">
+                               <div class="card-columns">
+                                  <div class="card">
+                                     <div class="col-md-12">
+                                        <img class="card-img-top" [src]="c.contentUpload"/>
+                                     </div>
+                                  </div>
+                               </div>
+                               <!-- <img src="{{c.contentUpload}}" alt="" class="album-photo" />  -->
+                               <!-- <div class="album-right">
+                                  <img src="https://images.unsplash.com/photo-1502872364588-894d7d6ddfab?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=2250&q=80" alt="" class="album-photo" />
+                                  </div> -->
+                            </div>
+                            <!--album-photos-->
+                         </div>
+                         <!--album-content-->
+                      </div>
+                      <!--ngFor Doggo-->
+                   </div>
+                   <!--album box-->
+                </div>
+                <!--ngIf count >= 4-->
+             </div>
+             <!--timeline-right-->
+          </div>
+          <!--column-->
+       </div>
+       <!--row-->
+    </div>
+    <!--container-->
+ </div>

@@ -1,150 +1,252 @@
-<div class="main">
-   <div class="main-container">
-      <div class="profile">
-         <div class="profile-avatar">
-            <!-- <div *ngFor="let d of doggo">
-               <img src="{{d.doggoProfilePic}}" class="profile-img" alt="profile-img">
-               <div class="profile-name">{{d.doggoName}}</div>
-               </div> -->
-            <div *ngFor="let d of doggo" class="profile-avatar">
-               <img src="{{d.doggoProfilePic}}" alt="" class="profile-img">
-               <div class="profile-name">{{d.doggoName}}</div>
-            </div>
-         </div>
-         <img src="https://i.ibb.co/yBLWyd8/horizons.png" alt="" class="profile-cover">
-         <div class="profile-menu">
-            <a class="profile-menu-link active">Timeline</a>
-            <a class="profile-menu-link">About</a>
-            <a class="profile-menu-link">Friends</a>
-            <a class="profile-menu-link">Photos</a>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+<div class="main-container">
+   <div class="profile">
+      <div class="profile-avatar">
+         <div *ngFor="let d of doggo" class="profile-avatar">
+            <img src="{{d.doggoProfilePic}}" alt="" class="profile-img">
+            <div class="profile-name">{{d.doggoName}}</div>
          </div>
       </div>
-      <div class="timeline">
-         <div class="timeline-left">
-            <div *ngFor="let d of doggo" class="intro-box">
-               <div class="intro-title">
-                  Intro
-                  <button class="intro-menu"></button>
+      <img src="https://i.ibb.co/yBLWyd8/horizons.png" alt="" class="profile-cover">
+      <div class="profile-menu">
+         <ul id="myTabs" class="nav nav-pills nav-justified" role="tablist" data-tabs="tabs">
+            <li class="profile-menu-link active"><a href="#Timeline" data-toggle="tab"
+                  style="text-decoration: none;">Timeline</a></li>
+            <li class="profile-menu-link"><a href="#About" data-toggle="tab" style="text-decoration: none;">About</a>
+            </li>
+            <li class="profile-menu-link"><a href="#Friends" data-toggle="tab"
+                  style="text-decoration: none;">Friends</a></li>
+            <li class="profile-menu-link"><a href="#Photos" data-toggle="tab" style="text-decoration: none;">Photos</a>
+            </li>
+         </ul>
+      </div>
+   </div>
+
+   <div class="tab-content">
+      <div role="tabpanel" class="tab-pane active" id="Timeline">
+         <div class="timeline">
+            <div class="timeline-left">
+               <div *ngFor="let d of doggo" class="intro-box">
+                  <div class="intro-title">
+                     Intro
+                     <button class="intro-menu"></button>
+                  </div>
+                  <div class="info">
+                     <div class="info-item">
+                        <i class="fa fa-briefcase"></i> Doggo at <span>Summerveld Hound Resort</span>
+                     </div>
+                     <div class="info-item">
+                        <i class="fa fa-home"></i> Lives in <span>Assagay, KwaZulu-Natal</span>
+                     </div>
+                     <div class="info-item">
+                        <i class="fa fa-paw"></i> Nickname <span>{{d.doggoNickname}}</span>
+                     </div>
+                  </div>
                </div>
-               <div class="info">
-                  <div class="info-item">
-                     <i class="fa fa-briefcase"></i> Doggo at <span>Summerveld Hound Resort</span>
-                  </div>
-                  <div class="info-item">
-                     <i class="fa fa-home"></i> Lives in <span>Assagay, KwaZulu-Natal</span>
-                  </div>
-                  <div class="info-item">
-                     <i class="fa fa-paw"></i> Nickname <span>{{d.doggoNickname}}</span>
+               <div class="event box">
+                  <div class="event-wrapper">
+                     <div class="event-title">Life Events</div>
+                     <div class="event-body">
+                        <div class="row">
+                           <div class="col-sm-12">
+                              <div *ngFor="let l of lifeEvent">
+                                 <div class="card">
+                                    <div class="card-body">
+                                       <div class="last-vet-check-icon">
+                                          <div class="icon-flex">
+                                             <div class="icon-wrapper">
+                                                <i class="{{l.iconSrcUrl}}"></i>
+                                             </div>
+                                          </div>
+                                       </div>
+                                       <div class="last-vet-check-title">{{l.lifeEventName}}</div>
+                                       <div class="last-vet-check-date">{{l.lifeEventDate}}</div>
+                                    </div>
+                                 </div>
+                              </div>
+                           </div>
+                        </div>
+                     </div>
                   </div>
                </div>
             </div>
-            <div class="event box">
-               <div class="event-wrapper">
-                  <div class="event-title">Life Events</div>
-                  <div class="event-body" >
+            <div class="timeline-right">
+               <div class="album box">
+                  <div class="card-header post-header" *ngFor="let d of doggo">
+                     <div class="media">
+                        <img src="{{d.doggoProfilePic}}" class="status-img" />
+                        <div class="media-body ml-2">
+                           <div class="album-title"><strong>{{d.doggoName}}</strong> added new
+                              <span>photos</span>
+                           </div>
+                           <span class="text-muted"><small>12 hours ago</small></span>
+                        </div>
+                     </div>
+                  </div>
+                  <div *ngFor="let c of content">
+                     <p class="post-text" *ngIf="c.isFirstItem">{{c.albumName}}</p>
+                  </div>
+                  <div class="album-pictures">
+                     <div id="mdb-lightbox-ui"></div>
+                     <div class="d-grid mdb-lightbox">
+                        <figure class="item" *ngFor="let c of content">
+                           <a href="{{c.contentUpload}}" data-size="960x640">
+                              <img src="{{c.contentUpload}}" />
+                           </a>
+                        </figure>
+                     </div>
+                  </div>
+               </div>
+            </div>
+         </div>
+      </div>
+      <div role="tabpanel" class="tab-pane fade" id="About">
+         <div class="about">
+            <div *ngFor="let d of doggo" class="intro-box">
+               <section class="about-block" style="margin: 30px;">
+                  <div class="about-block-body">
                      <div class="row">
-                        <div class="col-sm-12">
-                           <div *ngFor="let l of lifeEvent">
-                              <div class="card">
-                                 <div class="card-body">
-                                    <div class="last-vet-check-icon">
-                                       <div class="icon-flex">
-                                          <div class="icon-wrapper">
-                                             <i class="{{l.iconSrcUrl}}"></i>
+                        <ul class="nav tab-menu flex-column nav-pills col-sm-4 pr15">
+                           <div class="intro-title" style="margin-bottom: -3px !important;">
+                              About
+                           </div>
+                           <li class="active"><button href="#Overview" data-toggle="tab"
+                                 style="text-decoration: none;">Overview</button></li>
+                           <li><button href="#PlacesLived" data-toggle="tab">Places Lived</button></li>
+                           <li><button href="#ContactAndBasicInfo" data-toggle="tab">Contact and Basic Info</button>
+                           </li>
+                           <li><button href="#LifeEvents" data-toggle="tab">Life Events</button></li>
+                        </ul>
+                        <div class="vl"></div>
+                        <div class="tab-content col-sm-8">
+                           <div class="tab-pane active" id="Overview">
+                              <div class="overview">
+                                 <div class="info-item">
+                                    <i class="fa fa-briefcase"></i> Doggo at <span>Summerveld Hound Resort</span>
+                                 </div>
+                                 <div class="info-item">
+                                    <i class="fa fa-home"></i> Lives in <span>Assagay, KwaZulu-Natal</span>
+                                 </div>
+                                 <div class="info-item">
+                                    <i class="fa fa-paw"></i> Nickname <span>{{d.doggoNickname}}</span>
+                                 </div>
+                              </div>
+                           </div>
+                           <div class="tab-pane fade" id="PlacesLived">
+                              <div class="about-title" style="margin-bottom: -3px !important;">
+                                 Places Lived
+                              </div>
+                              <div class="info-item">
+                                 <div class="row">
+                                    <img
+                                       src="https://i.ibb.co/10LGYFJ/umhlanga-pier-durban-south-africa-260nw-362786636.jpg"
+                                       class="status-img" />
+                                    <div class="row">
+                                       <div class="col-md-12">
+                                          <div class="places">
+                                             <p>Durban, KwaZulu-Natal <br> <span class="hometown">Hometown</span></p>
                                           </div>
                                        </div>
                                     </div>
-                                    <div class="last-vet-check-title">{{l.lifeEventName}}</div>
-                                    <div class="last-vet-check-date">{{l.lifeEventDate}}</div>
+                                 </div>
+                              </div>
+                           </div>
+                           <div class="tab-pane fade" id="ContactAndBasicInfo">
+                              3 ... Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diem nonummy nibh
+                              euismod tincidunt ut lacreet dolore magna aliguam erat volutpat. Lorem ipsum dolor sit
+                              amet, consectetuer adipiscing elit, sed diem nonummy nibh euismod tincidunt ut lacreet
+                              dolore magna aliguam erat volutpat. Lorem ipsum dolor sit amet, consectetuer adipiscing
+                              elit, sed diem nonummy nibh euismod tincidunt ut lacreet dolore magna aliguam erat
+                              volutpat. </div>
+                           <div class="tab-pane well fade" id="LifeEvents">
+                              <!-- <div class="event box">
+                                       <div class="event-wrapper">
+                                          <div class="event-title">Life Events</div>
+                                          <div class="event-body" >
+                                             <div class="row">
+                                                <div class="col-sm-12">
+                                                   <div *ngFor="let l of lifeEvent">
+                                                      <div class="card">
+                                                         <div class="card-body">
+                                                            <div class="last-vet-check-icon">
+                                                               <div class="icon-flex">
+                                                                  <div class="icon-wrapper">
+                                                                     <i class="{{l.iconSrcUrl}}"></i>
+                                                                  </div>
+                                                               </div>
+                                                            </div>
+                                                            <div class="last-vet-check-title">{{l.lifeEventName}}</div>
+                                                            <div class="last-vet-check-date">{{l.lifeEventDate}}</div>
+                                                         </div>
+                                                      </div>
+                                                   </div>
+                                                </div>
+                                             </div>
+                                          </div>
+                                       </div>
+                                    </div> -->
+                              <div class="life-events">
+                                 <div class="life-event-title">
+                                    Life Events
+                                 </div>
+                                 <div class="life-event-body" *ngFor="let l of lifeEvent">
+                                    <div class="date">
+                                       <p>{{l.lifeEventDate}}</p>
+                                    </div>
+                                    <div class="life-event">
+                                       <div class="row">
+                                          <div class="col-md-12">
+                                             <i class="{{l.iconSrcUrl}}"></i> {{l.lifeEventName}}
+                                          </div>
+                                       </div>
+                                    </div>
                                  </div>
                               </div>
                            </div>
                         </div>
-                        <!-- <div class="col-sm-6">
-                           <div class="card">
-                              <div class="card-body">
-                                 <div class="last-vet-check-icon">
-                                    <div class="icon-flex">
-                                       <div class="icon-wrapper">
-                                          <i class="fa fa-heart"></i>
-                                       </div>
-                                    </div>
-                                 </div>
-                                 <div class="last-vet-check-title">Rescued on</div>
-                                 <div class="last-vet-check-date">April 04, 2020</div>
-                              </div>
+                     </div>
+                  </div>
+               </section>
+
+            </div>
+         </div>
+      </div>
+      <div role="tabpanel" class="tab-pane fade" id="Friends">Events WP_Query goes here.</div>
+      <div role="tabpanel" class="tab-pane fade" id="Photos">
+         <div class="container my-5">
+            <div class="row">
+               <div class="col-md-9 col-lg-7 mx-md-auto">
+                  <div class="card">
+                     <div class="card-header post-header">
+                        <div class="media">
+                           <img class="rounded-circle avatar z-depth-0" src="https://i.imgur.com/Kh8zuRc.jpg"
+                              alt="Avatar">
+                           <div class="media-body ml-2">
+                              <h6><a href="#">Metallica</a></h6>
+                              <span class="text-muted"><small>12 hours ago</small></span>
                            </div>
-                           </div> -->
+                        </div>
+                     </div>
+                     <div class="card-body py-0">
+                        <p class="post-text">
+                           See you at the next <a href="#">#WorldWired</a> Metallica tour shows!
+                        </p>
+
+                        <div id="mdb-lightbox-ui"></div>
+
+                        <div class="d-grid mdb-lightbox">
+                           <figure class="item" *ngFor="let c of content">
+                              <a href="{{c.contentUpload}}" data-size="960x640">
+                                 <img src="{{c.contentUpload}}" />
+                              </a>
+                           </figure>
+                        </div>
                      </div>
                   </div>
                </div>
             </div>
          </div>
-         <div class="container">
-            <!-- <div class="col-md-12">
-               <div class="timeline-right">
-                  <div class="album box">
-                     <div class="status-main">
-                        <img src="https://i.ibb.co/yq1GxBM/DSC04033.jpg" class="status-img" />
-                        <div class="album-detail">
-                           <div class="album-title"><strong>Shenzi</strong> added new <span>photos</span></div>
-                           <div class="album-date">6 hours ago</div>
-                        </div>
-                        <div class="album-content">
-                           <div class="album-description">
-                             Bath time...
-                           </div>
-                           <div class="album-photos">
-                              <img src="https://images.unsplash.com/photo-1508179719682-dbc62681c355?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=2378&q=80" alt="" class="album-photo" /> 
-                              <div class="album-right">
-                                 <img src="https://images.unsplash.com/photo-1502872364588-894d7d6ddfab?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=2250&q=80" alt="" class="album-photo" />
-                                 <img src="https://images.unsplash.com/photo-1566737236500-c8ac43014a67?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1950&q=80" alt="" class="album-photo" />
-                             </div>
-                           </div>
-                        </div>
-                     </div>
-                  </div>
-               </div>
-               </div>
-               </div> -->
-            <div class="row">
-               <div class="col-md-12">
-                  <div class="timeline-right">
-                     <div *ngIf="count >= 4">
-                        <div class="album box">
-                           <div *ngFor="let d of doggo">
-                              <div class="status-main">
-                                 <img src="{{d.doggoProfilePic}}" class="status-img" />
-                                 <div class="album-detail">
-                                    <div class="album-title"><strong>{{d.doggoName}}</strong> added new <span>photos</span></div>
-                                 </div>
-                              </div><!--status main-->
-                              <div *ngFor="let c of content">
-                                 <div class="album-date" *ngIf="c.isFirstItem">6 hours ago {{c.albumDateCreated}}</div>
-
-                                    <div class="album-content">
-                                       <div class="album-description" *ngIf="c.isFirstItem">{{c.albumName}}</div>
-                              </div><!--ngFor Content-->
-                                 <div class="album-photos">
-                                    
-<div class="card-columns">
-   <div class="card">
-      <img class="card-img-top" [src]="c.contentUpload"/>
+      </div>
    </div>
 </div>
-                                    <!-- <img src="{{c.contentUpload}}" alt="" class="album-photo" />  -->
-                                    <!-- <div class="album-right">
-                                       <img src="https://images.unsplash.com/photo-1502872364588-894d7d6ddfab?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=2250&q=80" alt="" class="album-photo" />
-                                    </div> -->
-                                 </div><!--album-photos-->
-
-                                    </div><!--album-content-->
-                           </div><!--ngFor Doggo-->
-                        </div><!--album box-->
-                     </div><!--ngIf count >= 4-->
-                  </div><!--timeline-right-->
-               </div><!--column-->
-            </div><!--row-->
-         </div><!--container-->
-      </div><!--timeline-->
-   </div><!--main container-->

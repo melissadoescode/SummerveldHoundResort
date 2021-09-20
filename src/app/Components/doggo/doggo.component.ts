@@ -34,6 +34,7 @@ export class DoggoComponent implements OnInit {
 
   onSelect(doggo: Doggo): void {
     this.router.navigateByUrl('summerveldhoundresort/doggo-profile/' + doggo.doggoId);
+    // console.log(this.router.navigateByUrl('summerveldhoundresort/furbook-timeline/' + doggo.doggoId));
     // this.selectedDoggo = doggo;
     console.log(this.selectedDoggo);
   }

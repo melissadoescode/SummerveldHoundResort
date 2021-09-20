@@ -16,8 +16,8 @@ export class DoggoProfileService {
   rootUrl = environment.summerveldHoundResortApiUrl;
   paramDoggo = 'doggo/';
   paramContent = 'content/';
-  paramGetContentByAlbumId = 'getContentByAlbumId';
-  paramAlbumId = '?albumId';
+  paramGetContentByDoggoId = 'getContentByDoggoId';
+  paramDoggoId = '?doggoId=';
 
   constructor(private http: HttpClient, private errorHandler: ErrorHandlerService) { }
 
@@ -31,8 +31,14 @@ export class DoggoProfileService {
     );
   }
 
-  getContentByAlbumId(albumId: number):Observable<ContentViewModel[]>{
-    return this.http.get<ContentViewModel[]>(`${this.rootUrl}${this.paramContent}${this.paramGetContentByAlbumId}${this.paramAlbumId}${albumId}`)
-    .pipe(catchError(this.errorHandler.handleError));
+  getContentByDoggoId(doggoId: number):Observable<ContentViewModel[]>{
+    return this.http.get<ContentViewModel[]>(`${this.rootUrl}${this.paramContent}${this.paramGetContentByDoggoId}${this.paramDoggoId}${doggoId}`)
+    .pipe(map((data:any)=>{
+      console.log(`${this.rootUrl}${this.paramContent}${this.paramGetContentByDoggoId}${this.paramDoggoId}${doggoId}`);
+      console.log(data);
+      return data;
+    }),
+    catchError(this.errorHandler.handleCrudError)
+  );
   }
 }
